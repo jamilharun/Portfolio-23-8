@@ -1,27 +1,63 @@
 const header = document.querySelector(".header");
+const intro = document.querySelectorAll(".intro_L");
+const highlight = document.querySelector(".highLight")
 
-// let t1 = gsap.timeline({ pause:true, reversed: true});
-// // let t2 = gsap.timeline({ pause:true, reversed: true});
+// const icons = document.querySelectorAll(".icon-item");
+const icons = gsap.utils.toArray('.icon-item');
 
-// console.log("testing");
-// header.addEventListener("click", (e) => {
-//     t1.play();
-//     console.log("this should work");
-// })
+const tl = gsap.timeline();
+const tl2 = gsap.timeline();
 
-// t1.play();
+tl 
+    .from(header, {
+        duration: 2, 
+        opacity: 0, 
+        y: '-100', 
+        ease: 'power2.out'
+    })
+    .from(intro, {
+        duration: 1.5,
+        opacity: 0,
+        x: '-100',
+        ease: 'power1.inOut',
+        stagger: .5
+    })
+    .from(highlight, {
+        duration: 2.5,
+        opacity: 0,
+        ease: 'expo.inOut' 
+    })
 
-// t1.to(".logo", {
-//     ease: "elastic.out(1, .8)",
-//     top: "10%",
-//     rotate: 0,
-//     duration: 1.5,
-// })
+tl2 .to(icons, {
+        opacity: 1,
+        duration: 5,
+        stagger: {
+            from: 'random',
+            each: 1,
+            repeat: -1,
+            
+        },
+        ease: 'power1.inOut',
+    })
+tl.add(tl2);
+// for(let i = 0; i < tl2.length; i++){
+//   console.log(tl2[i]);
+// }
 
+// tl2.reverse()
 
-gsap.from(header, {
-    duration: 2,
-    opacity: 0,
-    // y: '-100'
-    ease: 'bounce'
-})
+// function animateRandom(){
+//     gsap.utils.shuffle(icons);
+//     const tl2 = gsap.timeline({ 
+//         repeat: -1, 
+//         stagger: 1 , 
+//         onComplete: animateRandom}),
+//         subset = icons.slice(0,2); 
+
+//     tl2.to(subset, {
+//         opacity: 0,
+//     }).set(subset, {
+//         opacity: 1,
+//     })
+// }
+// animateRandom();

@@ -79,7 +79,7 @@ body{
 }
 .icon-item{
     position: absolute;
-       
+    opacity: 0;
     /* color: var(--light_steel_blue); */
     /* background-color: var(--light_steel_blue); */
 }
