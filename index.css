@@ -55,7 +55,7 @@ body{
 }
 .intro{
     padding: 50px;
-    padding-top: 250px;
+    padding-top: 230px;
 }
 .intro h1{
     font-size: 60px;
@@ -67,11 +67,12 @@ body{
 }
 .intro p{
     font-size: 60px;
-    line-height: 4rem;
+    line-height: 5rem;
+    font-family: var(--poppins);
 }
 .intro p b{
-    font-size: 130px;
-    font-weight: 500;
+    font-size: 110px;
+    font-weight: 300;
 }
 .intro , .icons{
     width: 50%;
@@ -80,6 +81,13 @@ body{
 .icon-item{
     position: absolute;
     opacity: 0;
+
+    
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    user-select: none;
+    -moz-user-select: none;
     /* color: var(--light_steel_blue); */
     /* background-color: var(--light_steel_blue); */
 }
@@ -100,4 +108,80 @@ body{
     height: 250px;
     top: 350px;
     right: 20;
+}
+/* 
+    section 2
+    this is where ill send a short message for viewers to read..
+
+    i would also want to automatically change everytime the page is loaded
+*/
+.section2{
+    width: 100%;
+    height: 150vh;
+}
+.message{
+    padding: 30% ;
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: aqua; */
+}
+.message p{
+    margin: 20%;
+
+    color: var(--light_steel_blue);
+    font-size: 30px;
+}
+.message hr, .message p{
+    /* background-color: #0B468C; */
+}
+
+
+
+/*  secion 3 
+    this section is where i will put the 
+    link for my socials and othe fratform i am in
+*/
+.container{
+    width: 100%;
+    padding: 20%;
+}
+.container .link{
+    width: auto;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 150px;
+    padding-right: 150px;
+
+    /* background-color: var(--dark_cerulian); */
+}
+.container .link .links img{
+    width: auto;
+    height: 100%;
+    transition: 2s;
+}
+.container .link .links img:hover{
+    scale: 1.4;
+}
+.container hr{
+    margin: 20px 100px 200px 100px;
+}
+.container .content{
+    width: 100%;
+    padding: 1px 100px;
+    display: flex;
+    flex-direction: column;
+}
+.container .content .categories{
+    width: 100%;
+    height: 600px;
+    
+}
+.container .content .categories a{
+    font-size: 50px;
+    color: var(--light_steel_blue);
+    margin-top: 100px;
+    text-decoration: none;
+    font-family: var(--poppins);
 }

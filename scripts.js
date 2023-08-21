@@ -1,3 +1,11 @@
+// checking window width
+console.log(window.innerWidth); //full window width
+
+// onUpdate window width when you inspect it
+window.addEventListener('resize', () =>{console.log(window.innerWidth);});
+
+
+// --------------------------------------------------------------------------
 const header = document.querySelector(".header");
 const intro = document.querySelectorAll(".intro_L");
 const highlight = document.querySelector(".highLight")
@@ -40,24 +48,3 @@ tl2 .to(icons, {
         ease: 'power1.inOut',
     })
 tl.add(tl2);
-// for(let i = 0; i < tl2.length; i++){
-//   console.log(tl2[i]);
-// }
-
-// tl2.reverse()
-
-// function animateRandom(){
-//     gsap.utils.shuffle(icons);
-//     const tl2 = gsap.timeline({ 
-//         repeat: -1, 
-//         stagger: 1 , 
-//         onComplete: animateRandom}),
-//         subset = icons.slice(0,2); 
-
-//     tl2.to(subset, {
-//         opacity: 0,
-//     }).set(subset, {
-//         opacity: 1,
-//     })
-// }
-// animateRandom();
