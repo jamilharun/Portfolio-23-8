@@ -123,6 +123,7 @@ body{
     padding: 30% ;
     display: flex;
     flex-direction: column;
+    box-shadow: 5px 10px var(--light_steel_blue);
 
     /* background-color: aqua; */
 }
@@ -132,10 +133,16 @@ body{
     color: var(--light_steel_blue);
     font-size: 30px;
 }
-.message hr, .message p{
+.message .messageIn{
     /* background-color: #0B468C; */
+    opacity: 0;
+    top: 100;
 }
-
+/* .messageIn.active{
+    opacity: 1;
+    background-color: red;
+    color: #0B468C;
+} */
 
 
 /*  secion 3 
