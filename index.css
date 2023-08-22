@@ -120,13 +120,16 @@ body{
     height: 150vh;
 }
 .message{
-    padding: 30% ;
+    opacity: 0;
+    margin: 30% ;
     display: flex;
-    flex-direction: column;
-    box-shadow: 5px 10px var(--light_steel_blue);
+    flex-direction: column; 
+    /* box-shadow: 5px 10px var(--light_steel_blue); */
 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 20px 0px;
     /* background-color: aqua; */
 }
+
 .message p{
     margin: 20%;
 
@@ -138,11 +141,11 @@ body{
     opacity: 0;
     top: 100;
 }
-/* .messageIn.active{
+.active{
     opacity: 1;
-    background-color: red;
-    color: #0B468C;
-} */
+    /* background-color: red; */
+    /* color: #0B468C; */
+}
 
 
 /*  secion 3 
@@ -171,7 +174,7 @@ body{
 .container .link .links img:hover{
     scale: 1.4;
 }
-.container hr{
+.container .containerDivider{
     margin: 20px 100px 200px 100px;
 }
 .container .content{

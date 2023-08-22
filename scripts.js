@@ -11,16 +11,20 @@ gsap.registerPlugin(ScrollTrigger);
 const header = document.querySelector(".header");
 const intro = document.querySelectorAll(".intro_L");
 const highlight = document.querySelector(".highLight")
-const message = document.querySelectorAll('.messageIn')
+
+const message = document.querySelector('.message')
+const messageIn = document.querySelectorAll('.messageIn')
+
 // const icons = document.querySelectorAll(".icon-item");
 const icons = gsap.utils.toArray('.icon-item');
 
 const tl = gsap.timeline();
-const tl2 = gsap.timeline();
+const tl2 = gsap.timeline({ repeat: -1, stagger: { from: 'random', each: 1 } });
 
 tl 
     .from(header, {
-        opacity: 0, 
+        
+        opacity: 1, 
         duration: 2, 
         y: '-100', 
         ease: 'power2.out'
@@ -38,42 +42,46 @@ tl
         ease: 'expo.inOut' 
     })
 
-tl2 .to(icons, {
-        opacity: 1,
-        duration: 5,
-        // toggleActions: 'restart reverse none none',
-        stagger: {
-            from: 'random',
-            each: 1,
-            repeat: -1,
-        },
-        ease: 'power1.inOut',
-    })
+tl2 .to(icons[0], { opacity: 1, duration: 5, ease: 'power1.inOut' })
+    .to(icons[0], { opacity: 0, duration: 5, ease: 'power1.inOut' })
+    .to(icons[1], { opacity: 1, duration: 5, ease: 'power1.inOut' })
+    .to(icons[1], { opacity: 0, duration: 5, ease: 'power1.inOut' })
+    .to(icons[2], { opacity: 1, duration: 5, ease: 'power1.inOut' })
+    .to(icons[2], { opacity: 0, duration: 5, ease: 'power1.inOut' })
+
 tl.add(tl2);
 
-gsap.to(message, {
-    scrollTrigger: {
-        trigger: message,
-        start: "20px 80%",
-        end : "top 100px",
-        markers: true,
-        // toggleClass: ".active",
-        // toggleActions: "restart pause reverse pause"
-    },
-    opacity: 1,
+
+// future jamil plss fix
+// const tlsection2 = gsap.timeline()
+// tlsection2
+//     .to([messageIn, message], {
+//     scrollTrigger: {
+//         trigger: message,
+//         start: "20px 80%",
+//         end : "top 100px",
+//         // onEnter: { opacity: 1},
+//         // onLeave: { opacity: 0},
+//         // onEnterBack: { opacity: 1 },
+//         // onLeaveBack: { opacity: 0 },
+//         // stagger: .5,
+//         toggleClass: "active",
+//         toggleActions: "restart pause reverse pause",
+//         markers: true,
+//     },
+//     opacity: 1,
+//     duration: 4,
+//     stagger: .5
+//     })
     
+const links = gsap.utils.toArray('.links');
+const tl4 = gsap.timeline()
+tl4 .from(links, {
+    scrollTrigger: { trigger: '.link', toggleActions: 'restart pause', markers: true },
+    opacity: 1,
     duration: 1,
-    stagger: .5
+    y: -400,
+    x: 400,
+    stagger: .5,
+    ease:  'power1.inOut'   
 })
-
-
-// gsap.timeline({scrollTrigger:{
-//     trigger: message,
-//     start: 'top top',
-//     scrub: 1,
-//     opacity: 0
-// }})
-// .to(message,{
-//     height: '110%',
-//     ease: 'expo.inOut'
-// })
