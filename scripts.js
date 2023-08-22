@@ -8,7 +8,7 @@ window.addEventListener('resize', () =>{console.log(window.innerWidth);});
 // --------------------------------------------------------------------------
 gsap.registerPlugin(ScrollTrigger);
 
-const header = document.querySelector(".header");
+// const header = document.querySelector(".header");
 const intro = document.querySelectorAll(".intro_L");
 const highlight = document.querySelector(".highLight")
 
@@ -20,15 +20,15 @@ const icons = gsap.utils.toArray('.icon-item');
 
 const tl = gsap.timeline();
 const tl2 = gsap.timeline({ repeat: -1, stagger: { from: 'random', each: 1 } });
+const qwe = gsap.timeline();
 
+qwe .from('.header', {        
+    opacity: 1, 
+    duration: 4, 
+    y: '-100', 
+    ease: 'power2.out'
+    });
 tl 
-    .from(header, {
-        
-        opacity: 1, 
-        duration: 2, 
-        y: '-100', 
-        ease: 'power2.out'
-    })
     .from(intro, {
         duration: 1.5,
         opacity: 0,
@@ -77,7 +77,7 @@ tl.add(tl2);
 const links = gsap.utils.toArray('.links');
 const tl4 = gsap.timeline()
 tl4 .from(links, {
-    scrollTrigger: { trigger: '.link', toggleActions: 'restart pause', markers: true },
+    scrollTrigger: { trigger: '.link', toggleActions: 'restart pause' },
     opacity: 1,
     duration: 1,
     y: -400,
